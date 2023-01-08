@@ -39,11 +39,11 @@ type EncryptInfo struct {
 	//卡號末四碼
 	Card4No string `db:"card_four_no"`
 	//分期-期別
-	CardInst string `db:"inst"`
+	CardInst string `db:"card_inst"`
 	//分期-首期金額
-	FirstAmt string `db:"inst_first"`
+	FirstAmt string `db:"first_amt"`
 	//分期-每期金額
-	EachAmt string `db:"inst_each"`
+	EachAmt string `db:"each_amt"`
 	//回應碼
 	ResCode string `db:"res_code"`
 	//回應碼敘述
@@ -55,27 +55,27 @@ type EncryptInfo struct {
 	//授權銀行(名稱)
 	AuthBankName string `db:"auth_bank_name"`
 	//授權類型
-	AuthType string
+	AuthType string `db:"auth_type"`
 	//授權日期
-	AuthDay string
+	AuthDay string `db:"auth_day"`
 	//授權時間
-	AuthTime string
+	AuthTime string `db:"auth_time"`
 	//信用卡Token Hash
-	CreditHash string
+	CreditHash string `db:"credit_hash"`
 	//信用卡Token 有效日期
-	CreditLife string
+	CreditLife string `db:"credit_lift"`
 	//	發卡銀行(代碼)
-	CardBank string
+	CardBank string `db:"card_bank"`
 	//**虛擬帳號回傳參數**
 	//	銀行(代碼)
-	BankType string `db:"bank_code"`
+	BankType string `db:"bank_type"`
 	//繳費設定
 	PaySet string `db:"pay_set"`
 	//**超商代碼繳費回傳參數**
 	//繳費門市類別 超商類別名稱
 	StoreType string `db:"store_type"`
 	//超商(代碼)
-	Store string `db:"store_id"`
+	Store string `db:"store"`
 	//驗證碼
 	VerifyCode string `db:"verify_code"`
 	//**愛金卡（ＩＣＡＳＨ）**
