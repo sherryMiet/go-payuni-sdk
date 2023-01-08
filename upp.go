@@ -6,8 +6,6 @@ const (
 	Version    = "1.0"
 	TestUPPUrl = "https://sandbox-api.payuni.com.tw/api/upp"
 	UPPUrl     = "https://api.payuni.com.tw/api/upp"
-
-	TradeLimit = 900
 )
 
 type UPPRequestCall struct {

@@ -186,10 +186,10 @@ func (v NewebPayValues) Encode() string {
 
 func StrToMap(in string) map[string]string {
 	res := make(map[string]string)
-	array := strings.Split(in, ",")
+	array := strings.Split(in, "&")
 	temp := make([]string, 2)
 	for _, val := range array {
-		temp = strings.Split(string(val), ":")
+		temp = strings.Split(string(val), "=")
 		res[temp[0]] = temp[1]
 	}
 	return res
