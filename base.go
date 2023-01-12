@@ -16,13 +16,6 @@ type (
 	IndexType   int
 )
 
-const (
-	RespondType_JSON          RespondType = "JSON"
-	RespondType_STRING        RespondType = "STRING"
-	IndexType_MerchantOrderNo IndexType   = 1
-	IndexType_TradeNo         IndexType   = 2
-)
-
 func PtrNilString(s string) *string {
 	if s == "" {
 		return nil
@@ -63,7 +56,7 @@ func GenerateAutoSubmitHtmlForm(params map[string]string, targetUrl string) stri
 	}
 	return result.String()
 }
-func SendNewebPayRequest(postData *map[string]string, URL string) ([]byte, error) {
+func SendPayUniRequest(postData *map[string]string, URL string) ([]byte, error) {
 	body := new(bytes.Buffer)
 	w := multipart.NewWriter(body)
 	for k, v := range *postData {

@@ -133,7 +133,6 @@ func (c *Client) QueryTradeInfo(Request *QueryTradeInfoRequest) *QueryTradeInfoR
 	paramStr := NewValuesFromMap(params).Encode()
 	call.CheckValue = SHA256("IV=" + c.HashIV + "&" + paramStr + "&Key=" + c.HashKey)
 	call.Version = QueryTradeInfoVersion
-	call.RespondType = RespondType_JSON
 	call.TimeStamp = strconv.Itoa(int(time.Now().Unix()))
 	if strings.Contains(c.MerID, "MS5") {
 		call.Gateway = "Composite"
@@ -155,7 +154,7 @@ func (q *QueryTradeInfoRequestCall) Do() (*QueryTradeInfoResponse, error) {
 	PostData["Amt"] = strconv.Itoa(q.QueryTradeInfoRequest.Amt)
 	PostData["Gateway"] = q.Gateway
 
-	body, err := SendNewebPayRequest(&PostData, TestQueryTradeInfoUrl)
+	body, err := SendPayUniRequest(&PostData, TestQueryTradeInfoUrl)
 	if err != nil {
 		return nil, err
 	}
@@ -180,7 +179,7 @@ func (q *QueryTradeInfoRequestCall) DoTest() (*QueryTradeInfoResponse, error) {
 	PostData["Amt"] = strconv.Itoa(q.QueryTradeInfoRequest.Amt)
 	PostData["Gateway"] = q.Gateway
 
-	body, err := SendNewebPayRequest(&PostData, TestQueryTradeInfoUrl)
+	body, err := SendPayUniRequest(&PostData, TestQueryTradeInfoUrl)
 	if err != nil {
 		return nil, err
 	}
